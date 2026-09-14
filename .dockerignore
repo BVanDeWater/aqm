@@ -1,0 +1,16 @@
+.git
+.gitignore
+__pycache__
+*.pyc
+*.pyo
+.ipynb_checkpoints
+*.ipynb
+.env
+.envrc
+.venv
+env/
+venv/
+data/
+headlines.html
+environment.yml
+fetchers/aqs_api_docs.txt

@@ -1,0 +1,17 @@
+# Core Data Manipulation
+pandas>=2.0.0
+numpy>=1.24.0
+
+# HTTP & API Integrations (EPA, ClimateTRACE, NewsAPI)
+requests>=2.31.0
+python-dotenv>=1.0.0
+newsapi-python>=0.2.7
+
+# Visualization & Geospatial Mapping
+plotly>=5.18.0
+geopandas>=0.14.0
+nbformat>=5.9.0
+
+# Web serving
+flask>=3.0.0
+gunicorn>=22.0.0

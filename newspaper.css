@@ -1,0 +1,404 @@
+/* ==========================================================================
+   THE AIR MONITOR — Classic Broadside Newspaper Stylesheet
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,700;1,6..72,400&family=Playfair+Display:ital,wght@0,600;0,700;0,800;0,900;1,400;1,700&family=Libre+Franklin:wght@400;500;600;700&display=swap');
+
+:root {
+  --paper-bg: #fcfaf5;
+  --paper-desk: #ebe5db;
+  --ink-primary: #181512;
+  --ink-secondary: #4a443d;
+  --ink-muted: #6e675e;
+  --rule-thick: #181512;
+  --rule-light: #d8d2c5;
+  --rule-accent: #78261e;
+  
+  --font-masthead: 'Cinzel', 'Playfair Display', 'Old English Text MT', Georgia, serif;
+  --font-headline: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-body: 'Newsreader', Georgia, 'Times New Roman', serif;
+  --font-sans: 'Libre Franklin', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* Page Reset & Canvas */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 2.5rem 1rem;
+  background-color: var(--paper-desk);
+  color: var(--ink-primary);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.55;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Broadsheet Container */
+.newspaper-page,
+body > div:first-of-type {
+  max-width: 1280px;
+  margin: 0 auto;
+  background-color: var(--paper-bg);
+  padding: 3rem 3.5rem;
+  box-shadow: 0 4px 25px rgba(24, 21, 18, 0.1), 0 0 1px rgba(24, 21, 18, 0.15);
+  border: 1px solid #dfd8cb;
+  position: relative;
+}
+
+/* Subtle newspaper texture simulation */
+.newspaper-page::before,
+body > div:first-of-type::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.4) 0%, rgba(240,233,222,0.15) 100%);
+}
+
+/* --------------------------------------------------------------------------
+   MASTHEAD & HEADER
+   -------------------------------------------------------------------------- */
+
+.masthead {
+  text-align: center;
+  position: relative;
+  margin-bottom: 0.5rem;
+}
+
+/* Ear Pieces / Top Bar */
+.masthead-ear-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--ink-muted);
+  border-bottom: 1px solid var(--rule-thick);
+  padding-bottom: 0.35rem;
+  margin-bottom: 1.25rem;
+}
+
+.masthead h1,
+h1 {
+  font-family: var(--font-masthead);
+  font-size: clamp(2.8rem, 6.2vw, 5.2rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin: 0.3rem 0 0.2rem 0;
+  color: var(--ink-primary);
+  line-height: 1;
+  text-align: center;
+}
+
+/* Sub-title / Dateline Bar */
+.dateline-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 3px solid var(--rule-thick);
+  border-bottom: 1px solid var(--rule-thick);
+  padding: 0.4rem 0.5rem;
+  margin: 0.75rem 0 2rem 0;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink-secondary);
+}
+
+/* Support existing fallback h3 immediately under h1 */
+body > div:first-of-type > h3:first-of-type,
+h1 + h3 {
+  text-align: center;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin: 0.5rem 0 1rem 0;
+  color: var(--ink-secondary);
+  border-top: 3px solid var(--rule-thick);
+  border-bottom: 1px solid var(--rule-thick);
+  padding: 0.45rem 0;
+}
+
+/* Clean up duplicate consecutive hr tags from existing markup */
+hr {
+  border: 0;
+  border-top: 1px solid var(--rule-light);
+  margin: 1.5rem 0;
+}
+
+hr + hr {
+  display: none;
+}
+
+/* --------------------------------------------------------------------------
+   SECTIONS & CATEGORY BANNERS
+   -------------------------------------------------------------------------- */
+
+.section-header,
+h2 {
+  font-family: var(--font-sans);
+  font-size: 1.15rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  text-align: center;
+  color: var(--ink-primary);
+  margin: 2.5rem 0 1.5rem 0;
+  padding: 0.5rem 0;
+  border-top: 2px solid var(--rule-thick);
+  border-bottom: 1px solid var(--rule-thick);
+  background: linear-gradient(to right, transparent, rgba(0,0,0,0.02) 20%, rgba(0,0,0,0.02) 80%, transparent);
+  position: relative;
+}
+
+.section-header::before,
+h2::before {
+  content: "§";
+  display: block;
+  font-family: var(--font-headline);
+  font-size: 0.9rem;
+  color: var(--rule-accent);
+  margin-bottom: 0.1rem;
+}
+
+/* --------------------------------------------------------------------------
+   NEWSPAPER COLUMNS & ARTICLES GRID
+   -------------------------------------------------------------------------- */
+
+/* Grid container for articles within a section */
+.articles-grid,
+div:has(> .article) {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.25rem 2rem;
+  align-items: start;
+  margin-bottom: 2.5rem;
+}
+
+/* Responsive columns */
+@media (max-width: 1024px) {
+  .articles-grid,
+  div:has(> .article) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem 1.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .newspaper-page,
+  body > div:first-of-type {
+    padding: 1.5rem 1.25rem;
+  }
+  .articles-grid,
+  div:has(> .article) {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   ARTICLE CARDS & TYPOGRAPHY
+   -------------------------------------------------------------------------- */
+
+.article {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--rule-light);
+  position: relative;
+}
+
+/* Vertical column border separator */
+@media (min-width: 641px) {
+  .article:not(:nth-child(3n)) {
+    padding-right: 1rem;
+  }
+}
+
+/* Lead / Feature Article (First article in section) */
+.article.lead,
+.articles-grid > .article:first-child,
+div:has(> .article) > .article:first-of-type {
+  grid-column: 1 / -1;
+  padding-bottom: 2rem;
+  border-bottom: 3px double var(--rule-thick);
+  margin-bottom: 1.5rem;
+}
+
+.article.lead.has-image {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+.article.lead:not(.has-image) {
+  display: block;
+}
+
+@media (max-width: 860px) {
+  .article.lead.has-image {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+/* Lead Image Container & Presentation */
+.lead-image-wrap {
+  margin: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.lead-image {
+  width: 100%;
+  height: auto;
+  max-height: 400px;
+  object-fit: cover;
+  display: block;
+  border: 1px solid var(--rule-light);
+  padding: 4px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+
+/* Headlines */
+.article h3 {
+  font-family: var(--font-headline);
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.25;
+  margin: 0 0 0.6rem 0;
+  color: var(--ink-primary);
+}
+
+/* Headline in Lead story */
+.article.lead h3,
+.articles-grid > .article:first-child h3,
+div:has(> .article) > .article:first-of-type h3 {
+  font-size: clamp(1.6rem, 2.5vw, 2.3rem);
+  font-weight: 900;
+  line-height: 1.18;
+  letter-spacing: -0.01em;
+}
+
+/* Headline Links */
+.article h3 a {
+  color: var(--ink-primary);
+  text-decoration: none;
+  transition: color 0.15s ease, text-decoration-color 0.15s ease;
+}
+
+.article h3 a:hover {
+  color: var(--rule-accent);
+  text-decoration: underline;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 3px;
+}
+
+/* Bylines & Publication Date */
+.article h4,
+.article .byline {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink-muted);
+  margin: 0 0 0.85rem 0;
+  line-height: 1.4;
+}
+
+/* Article Excerpt Paragraph */
+.article p {
+  font-family: var(--font-body);
+  font-size: 0.98rem;
+  line-height: 1.58;
+  color: var(--ink-primary);
+  margin: 0;
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+}
+
+/* Elegant Drop Cap for the Lead Story */
+.article.lead p::first-letter,
+.articles-grid > .article:first-child p::first-letter,
+div:has(> .article) > .article:first-of-type p::first-letter {
+  float: left;
+  font-family: var(--font-headline);
+  font-size: 3.8rem;
+  line-height: 0.82;
+  padding-top: 4px;
+  padding-right: 10px;
+  padding-bottom: 2px;
+  color: var(--ink-primary);
+  font-weight: 900;
+}
+
+/* Remove default article hr */
+.article > hr {
+  display: none;
+}
+
+/* --------------------------------------------------------------------------
+   FOOTER / COLOPHON
+   -------------------------------------------------------------------------- */
+
+.footer {
+  margin-top: 3.5rem;
+  padding-top: 1.5rem;
+  border-top: 2px solid var(--rule-thick);
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  color: var(--ink-muted);
+  text-align: center;
+}
+
+.footer hr {
+  display: none;
+}
+
+.footer p {
+  margin: 0.5rem 0;
+  text-align: center;
+}
+
+.footer ul {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0 0 0;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.footer li:empty {
+  display: none;
+}
+
+.footer a {
+  color: var(--ink-secondary);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.footer a:hover {
+  color: var(--rule-accent);
+}
