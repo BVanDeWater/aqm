@@ -156,7 +156,7 @@ def build_page(articles_json, us_sources, stylesheet_path="newspaper.css", embed
     <main class="newspaper-page">
         <header class="masthead">
             <div class="masthead-ear-bar">
-                <span>Breathe Deep, Read Carefully</span>
+                <span>Breathe Deeply, Read Carefully</span>
                 <span>Daily Circulation &bull; Two Cents</span>
             </div>
             <h1>The Air Monitor</h1>
